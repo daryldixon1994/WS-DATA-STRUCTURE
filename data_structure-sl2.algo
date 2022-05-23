@@ -1,0 +1,48 @@
+ALGORITHM solution_two
+VAR
+    hTab : HASH_TABLE<INTEGER ,INTEGER>
+    tab1, tab2: ARRAY_OF INTEGER [];
+    count, lg1, lg2, i, j : INTEGER;
+    sum: INTEGER:= 0;
+BEGIN
+    
+REPEAT
+        Write("Enter the length of the first array: ");
+        Read(lg1);
+        Write("Enter the length of the second array: ");
+        Read(lg2);
+    UNTIL (lg1 <= 0 AND lg2 <= 0)
+    FOR i FROM 0 TO lg1 - 1 STEP 1 DO
+        Read(tab1[i])
+    END_FOR
+    FOR j FROM 0 TO lg2 - 1 STEP 1 DO
+        Read(tab2[j])
+    END_FOR
+
+    FOR i FROM 0 TO lg1 - 1 STEP 1  DO
+        IF (hTab.lookup(tab1[i])) THEN
+            count := htab.get(tab1[i])
+            hTab.insert(tab1[i], count + 1)
+        ELSE
+            hTab.insert(tab1[i], 1)
+        END_IF
+    END_FOR
+    FOR j FROM 0 TO lg2 - 1 STEP 1  DO
+        IF (hTab.lookup(tab2[j])) THEN
+            hTab.insert(tab2[j], htab.get(tab2[j]) + 1)
+        ELSE
+            hTab.insert(tab2[j], 1)
+        END_IF
+    END_FOR
+    FOR i FROM 0 TO lg1 -1 STEP 1  DO
+        IF (hTab.get(tab1[i]) = 1) THEN
+            sum := sum + tab1[i]
+        END_IF
+    END_FOR
+    FOR j FROM 0 TO lg2 -1 STEP 1  DO
+        IF (hTab.get(tab2[j]) = 1) THEN
+            sum := sum + tab2[j]
+        END_IF
+    END_FOR
+
+END
